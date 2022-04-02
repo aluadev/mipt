@@ -15,7 +15,8 @@ messenger = {
     'chat_group': [],
 }
 
-messenger['chat']['messages'].append('aaa')
+
+messenger['chat']['messages'].append('bbb')
 
 def add_user_in_chat(user_name: str) -> None:
    messenger['chat']['user'].append(user_name)
