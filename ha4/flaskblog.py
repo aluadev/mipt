@@ -21,7 +21,6 @@ def main():
 
 @app.route("/post/<title>")
 def post(title):
-    idt = [post['title'] for post in posts].index(title)
     return render_template('posts.html', post=posts[idt])
 
 
