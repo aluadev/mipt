@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+
 from datetime import date
 
 app = Flask(__name__)
@@ -21,23 +22,19 @@ def main():
 
 @app.route("/post/<title>")
 def post(title):
-    return render_template('posts.html', post=posts[idt])
+    return render_template('posts.html', post=posts)
 
 
 @app.route("/post/newPost", methods=['POST', 'GET'])
 def newPost():
-    d = {}
     if request.method == 'POST':
-        d['title'] = request.form['title']
-        d['written by'] = request.form['author']
-        d['content'] = request.form['content']
-        d['date_posted'] = request.form['date_posted']
-        posts.append(d)
+        request.form['title']
+        request.form['content']
+        request.form['author']
         return render_template('main.html')
     else:
         return render_template('posts.html')
 
 
-
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
