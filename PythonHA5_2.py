@@ -12,7 +12,7 @@ random_state = 42
 train_size = 0.75
 
 
-class Module:
+class Composite:
     def __init__(self, classifiers) -> None:
         self.classifiers = classifiers
         self.count = len(self.classifiers)
