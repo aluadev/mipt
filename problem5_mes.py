@@ -1,38 +1,20 @@
+class Messenger:
+    def __init__(self, chat:dict, messages:str, chat_group:list):
+        self.chat = chat
+        self.messages = messages
 
-messenger = {
-    'chat': {
-        'user': ['name1', 'name2'],
-        'messages': [{
-            'message': str,
-        }]
-    },
-    'chat2': {
-        'user': ['name2', 'name3'],
-        'messages': [{
-            'message': str,
-        }]
-    },
-    'chat_group': [],
-}
+    def add_user_in_chat(self, chat_name: str, user_name: str) -> None:
+        self.chat[chat_name].append(user_name)
+        # print(self.chat)
+
+    def find_word(self, word: str):
+        if word in self.messages:
+           print(f'{word} is found!')
+        else:
+            print(f'{word} is Not found!')
 
 
-messenger['chat']['messages'].append('bbb')
+messeng = Messenger({'ch1': ['Bob','Alice'], 'ch2':'Katrin', 'ch3': 'John'}, 'hello world!', ['family chat', 'work chat'])
+messeng.add_user_in_chat('ch1', 'Alua')
+messeng.find_word('dog')
 
-def add_user_in_chat(user_name: str) -> None:
-   messenger['chat']['user'].append(user_name)
-
-def find_word(word: str):
-   if word in messenger['chat']['messages']:
-       print(f'{word} is found!')
-
-def shared_chat(users: list, chat: str):
-    for i in range(len(users)):
-        if users[i] in messenger[chat]['user']:
-           messenger['chat_group'].append(users[i])
-    return messenger['chat_group']
-
-g1 = shared_chat(['name2', 'name3'], 'chat2')
-messenger['chat_group'] = []
-print(g1, 'chat2')
-g2 = shared_chat(['name1', 'name2'], 'chat')
-print(g2, 'chat1')
